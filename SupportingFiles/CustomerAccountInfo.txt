@@ -1,0 +1,53 @@
+{
+"id":"C001",
+"Name":"Sudhir Rawat",
+"MobileNumber":"9900990099",
+"AccountNumber":"SR12345",
+"AccountType":"SB",
+"Total Balance":10000	
+}
+
+{
+"id":"C002",
+"Name":"Bindu C",
+"MobileNumber":"9911000022",
+"AccountNumber":"BC67890",
+"AccountType":"SB",
+"Total Balance":50000	
+}
+
+{
+"id":"C003",
+"Name":"Brij Raj Singh",
+"MobileNumber":"9955698059",
+"AccountNumber":"BR98765",
+"AccountType":"SB",
+"Total Balance":30000	
+}
+
+{
+"id":"C004",
+"Name":"Anup R",
+"MobileNumber":"9807493019",
+"AccountNumber":"AR87456",
+"AccountType":"SB",
+"Total Balance":40000	
+}
+
+{
+"id":"C005",
+"Name":"Gandhali Samant",
+"MobileNumber":"9123567890",
+"AccountNumber":"GS33456",
+"AccountType":"SB",
+"Total Balance":90000	
+}
+
+{
+"id":"C006",
+"Name":"Maninander Singh",
+"MobileNumber":"9955124300",
+"AccountNumber":"MS21315",
+"AccountType":"SB",
+"Total Balance":30000	
+}
