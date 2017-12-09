@@ -1,0 +1,47 @@
+#r "Microsoft.Azure.Documents.Client"
+using System;
+using System.Collections.Generic;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+
+public static void Run(IReadOnlyList<Document> input, TraceWriter log)
+{
+
+    if (input != null && input.Count > 0)
+    {
+        var strendpointUrl = System.Environment.GetEnvironmentVariable("endpointUrl");
+        var strauthorizationKey = System.Environment.GetEnvironmentVariable("authorizationKey");
+      
+        foreach (var doc in input)
+        {
+            var client = new DocumentClient(new Uri(strendpointUrl), strauthorizationKey);
+            Database database = client.CreateDatabaseQuery("SELECT * FROM c WHERE c.id ='AccountBank'").AsEnumerable().First();
+            DocumentCollection collection = client.CreateDocumentCollectionQuery(database.CollectionsLink, "SELECT * FROM c WHERE c.id = 'Summary'").AsEnumerable().First();
+            var sql= "SELECT * FROM Summary WHERE Summary.AccountNumber = '" + doc.GetPropertyValue <string>("AccountNumber") + "'";
+            var AccountSummaryinSQL = client.CreateDocumentQuery(collection.SelfLink, sql).ToList();   
+            foreach (var document in AccountSummaryinSQL)
+            {
+                int NewBalance=0;
+                string TransactionType = doc.GetPropertyValue <string>("TransType");
+                int TransactionAmount = doc.GetPropertyValue <int>("Amount");
+                int OldBalance = (int)document.TotalBalance;
+                if (TransactionType == "DR")
+                {
+                    NewBalance = OldBalance - TransactionAmount;
+                }
+                if (TransactionType == "CR")
+                {
+                    NewBalance =  OldBalance + TransactionAmount;
+                }
+                document.TotalBalance = NewBalance;
+                var result = client.ReplaceDocumentAsync(document._self, document);
+                log.Verbose("Transction type is " +  TransactionType + " Old balance was " + OldBalance + ". Transaction Amount is " + TransactionAmount + " New Balance is " + NewBalance );
+            }
+            log.Verbose("Update");
+
+//            log.Verbose("Account Number " + doc.GetPropertyValue <string>("AccountNumber"));
+//            log.Verbose("Amount " + doc.GetPropertyValue <int>("Amount"));
+//            log.Verbose("Transtype " + doc.GetPropertyValue <string>("TransType"));
+        }
+    }
+}
