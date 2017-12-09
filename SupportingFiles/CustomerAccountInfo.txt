@@ -4,7 +4,7 @@
 "MobileNumber":"9900990099",
 "AccountNumber":"SR12345",
 "AccountType":"SB",
-"Total Balance":10000	
+"TotalBalance":10000	
 }
 
 {
@@ -13,7 +13,7 @@
 "MobileNumber":"9911000022",
 "AccountNumber":"BC67890",
 "AccountType":"SB",
-"Total Balance":50000	
+"TotalBalance":50000	
 }
 
 {
@@ -22,7 +22,7 @@
 "MobileNumber":"9955698059",
 "AccountNumber":"BR98765",
 "AccountType":"SB",
-"Total Balance":30000	
+"TotalBalance":30000	
 }
 
 {
@@ -31,7 +31,7 @@
 "MobileNumber":"9807493019",
 "AccountNumber":"AR87456",
 "AccountType":"SB",
-"Total Balance":40000	
+"TotalBalance":40000	
 }
 
 {
@@ -40,7 +40,7 @@
 "MobileNumber":"9123567890",
 "AccountNumber":"GS33456",
 "AccountType":"SB",
-"Total Balance":90000	
+"TotalBalance":90000	
 }
 
 {
@@ -49,5 +49,5 @@
 "MobileNumber":"9955124300",
 "AccountNumber":"MS21315",
 "AccountType":"SB",
-"Total Balance":30000	
+"TotalBalance":30000	
 }
